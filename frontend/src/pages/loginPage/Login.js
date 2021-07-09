@@ -6,8 +6,10 @@ import { DivContainer, Form } from './styled';
 import axios from "axios";
 import { goToAllImagesPage, goToSignupPage } from "../../routes/coordinator"
 import { useHistory } from "react-router-dom";
+import { useUnprotectedPage } from "../../hooks/useUnprotectedPage";
 
 export const LoginPage = () => {
+    useUnprotectedPage()
 
     const history = useHistory()
 
@@ -31,9 +33,9 @@ export const LoginPage = () => {
         event.preventDefault()
         try {
             const token = await axios.post(`https://backend-fullstack-labenu.herokuapp.com/user/login`, form)
-            console.log(token)
             clear()
-            // goToAllImagesPage(history)
+            window.localStorage.setItem("token", token.data.token)
+            goToAllImagesPage(history)
         } catch (error) {
             alert("Esse usuário não existe")
             clear()

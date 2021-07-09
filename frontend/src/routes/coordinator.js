@@ -11,9 +11,9 @@ export const goToCreateImagePage = (history) => {
 }
 
 export const goToAllImagesPage = (history) => {
-    history.push("/images")
+    history.push("/images/all")
 }
 
 export const goToImageDetailsPage = (history, id) => {
-    history.push(`/images/:${id}`)
+    history.push(`/images/${id}`)
 }
