@@ -31,12 +31,21 @@ export const SignupPage = () => {
 
   const signup = async (event) => {
     event.preventDefault()
+
+    const body = {
+      name: form.name,
+      nickname: form.nickname,
+      email: form.email,
+      password: form.password
+    }
+
     try {
-      const token = await axios.post("https://backend-fullstack-labenu.herokuapp.com/user/signup", form)
-      console.log(token)
+      const token = await axios.post(`https://backend-fullstack-labenu.herokuapp.com/user/signup`, body)
+      window.localStorage.setItem("token", token.data.token)
       clear()
+      goToAllImagesPage(history)
     } catch (error) {
-      alert(error.message)
+      console.log(error.message)
       clear()
     }
   }

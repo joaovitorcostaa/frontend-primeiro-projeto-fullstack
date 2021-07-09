@@ -21,7 +21,7 @@ export default function Router() {
                     <CreateImagePage />
                 </Route>
 
-                <Route exact path ="/images">
+                <Route exact path ="/images/all">
                     <AllImagesPage />
                 </Route>
 
