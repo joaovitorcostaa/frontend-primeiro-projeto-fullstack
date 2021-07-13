@@ -1,36 +1,33 @@
 import styled from "styled-components"
+import { primaryColor } from "../../constants/colors"
 
 export const DivContainer = styled.div`
+color: white;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     align-items: center;
-    width: 40%;
+    width: 22rem;
+    height: 20rem;
     margin: 8px;
-    background-color: #cccccc;
+    padding: 12px 0px;
+    background-color: ${primaryColor};
+    border-radius: 12%;
     @media(max-width: 1024px){
-        justify-content: space-between;
-        flex-direction: column;
-        width: 60%;
-        height: 50%;
+        height: 15rem;
     }
 `
 
 export const Img = styled.img`
     width: 100%;
-    height: 80%;
-    @media(max-width: 1024px){
-        width: 100%;
-        height: 70%;
-    }
-    :hover{
-        cursor: pointer;
-    }
+    height: 65%;
 `
 
 export const DivInfo = styled.div`
-display: flex;
-align-items: center;
-justify-content: center;
-width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 15%;
+    flex-direction: column;
 `
