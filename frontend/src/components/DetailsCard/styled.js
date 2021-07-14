@@ -5,14 +5,13 @@ export const DivContainer = styled.div`
     justify-content: space-between;
     flex-direction: column;
     align-items: center;
-    width: 40%;
+    width: 45%;
     margin: 8px;
-    background-color: #cccccc;
     @media(max-width: 1024px){
         justify-content: space-between;
         flex-direction: column;
-        width: 60%;
-        height: 50%;
+        width: 95%;
+        height: 60%;
     }
 `
 
@@ -31,6 +30,6 @@ export const Img = styled.img`
 export const DivInfo = styled.div`
 display: flex;
 align-items: center;
-justify-content: center;
-width: 50%;
+flex-direction: column;
+width: 100%;
 `

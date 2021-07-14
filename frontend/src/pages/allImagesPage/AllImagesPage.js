@@ -3,9 +3,10 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { useProtectedPage } from "../../hooks/useProtectedPage";
 import { Button, Menu, MenuItem } from "@material-ui/core";
-import { goToCreateImagePage, goToImageDetailsPage } from "../../routes/coordinator";
+import { goToCreateImagePage, goToImageDetailsPage, goToLoginPage } from "../../routes/coordinator";
 import { Card } from "../../components/Card/Card"
 import { DivContainer, Header, DivCards, Title, DivButtons } from "./styled";
+import MenuIcon from '@material-ui/icons/Menu';
 
 export const AllImagesPage = () => {
     useProtectedPage()
@@ -18,7 +19,7 @@ export const AllImagesPage = () => {
 
     const [images, setImages] = useState([])
 
-    const [anchorEl, setAnchorEl] = React.useState(null);
+    const [anchorEl, setAnchorEl] = useState(null);
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -52,17 +53,22 @@ export const AllImagesPage = () => {
         />)
     })
 
+    const logout = () => {
+        localStorage.removeItem("token")
+        goToLoginPage(history)
+    }
+
     return <DivContainer>
         <Header>
-            <Title>Lista de imagens</Title>
+            <Title>LabeImage</Title>
             <DivButtons>
-                <Button color="primary" variant="contained" aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>Abrir o menu</Button>
+                <MenuIcon color="primary" onClick={handleClick} />
                 <Menu
                     anchorEl={anchorEl}
                     keepMounted
                     open={Boolean(anchorEl)}
                     onClose={handleClose}>
-                    <MenuItem> Logout </MenuItem>
+                    <MenuItem onClick={() => logout()}> Logout </MenuItem>
                     <MenuItem onClick={() => goToCreateImagePage(history)}> Criar Imagem </MenuItem>
                 </Menu>
             </DivButtons>

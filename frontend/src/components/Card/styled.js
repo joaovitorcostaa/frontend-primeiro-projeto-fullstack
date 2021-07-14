@@ -2,32 +2,36 @@ import styled from "styled-components"
 import { primaryColor } from "../../constants/colors"
 
 export const DivContainer = styled.div`
-color: white;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     align-items: center;
-    width: 22rem;
-    height: 20rem;
+    width: 42rem;
+    height: 22rem;
     margin: 8px;
-    padding: 12px 0px;
-    background-color: ${primaryColor};
-    border-radius: 12%;
+    padding-top: 2%;
+    border-radius: 2%;
+    background-color: #f2f2f2;
+    box-shadow: 2px 2px 2px 2px #dbdbdb;
     @media(max-width: 1024px){
-        height: 15rem;
+        height: 18rem;
+    }
+    :hover{
+        cursor: pointer;
+        box-shadow: 2px 2px 2px #787878;
     }
 `
 
 export const Img = styled.img`
-    width: 100%;
-    height: 65%;
+    width: 95%;
+    height: 75%;
 `
 
 export const DivInfo = styled.div`
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
     width: 100%;
-    height: 15%;
-    flex-direction: column;
+    height: 25%;
+    margin-left: 5%;
+    font-size: 20px;
 `

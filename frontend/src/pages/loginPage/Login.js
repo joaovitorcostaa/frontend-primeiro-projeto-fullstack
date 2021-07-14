@@ -81,7 +81,7 @@ export const LoginPage = () => {
             }}
             />
   
-        <Button color="secondary" type="submit" variant="contained">Enviar</Button>
+        <Button color="primary" type="submit" variant="contained">Enviar</Button>
         <Button color="secondary" type="submit" variant="text" onClick = {() => goToSignupPage(history)}>Não Possui uma conta? clique aqui!</Button>
         </Form>
     </DivContainer>
