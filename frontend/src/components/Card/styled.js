@@ -5,32 +5,33 @@ export const DivContainer = styled.div`
     justify-content: space-between;
     flex-direction: column;
     align-items: center;
-    width: 40%;
+    width: 42rem;
+    height: 22rem;
     margin: 8px;
-    background-color: #cccccc;
+    padding-top: 2%;
+    border-radius: 2%;
+    background-color: #f2f2f2;
+    box-shadow: 2px 2px 2px 2px #dbdbdb;
     @media(max-width: 1024px){
-        justify-content: space-between;
-        flex-direction: column;
-        width: 60%;
-        height: 50%;
+        height: 18rem;
+        width: 95%;
+    }
+    :hover{
+        cursor: pointer;
+        box-shadow: 2px 2px 2px #787878;
     }
 `
 
 export const Img = styled.img`
-    width: 100%;
-    height: 80%;
-    @media(max-width: 1024px){
-        width: 100%;
-        height: 70%;
-    }
-    :hover{
-        cursor: pointer;
-    }
+    width: 95%;
+    height: 75%;
 `
 
 export const DivInfo = styled.div`
-display: flex;
-align-items: center;
-justify-content: center;
-width: 50%;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 25%;
+    margin-left: 5%;
+    font-size: 20px;
 `
