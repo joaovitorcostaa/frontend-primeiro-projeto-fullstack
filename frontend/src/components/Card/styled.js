@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import { primaryColor } from "../../constants/colors"
 
 export const DivContainer = styled.div`
     display: flex;
@@ -15,6 +14,7 @@ export const DivContainer = styled.div`
     box-shadow: 2px 2px 2px 2px #dbdbdb;
     @media(max-width: 1024px){
         height: 18rem;
+        width: 95%;
     }
     :hover{
         cursor: pointer;

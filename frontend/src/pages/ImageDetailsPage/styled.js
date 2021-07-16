@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import {primaryColor} from "../../constants/colors"
 
 export const DivContainer = styled.div`
     height: 100vh;
@@ -12,8 +13,10 @@ export const Header = styled.div`
     display: flex;
     align-items: center;
     margin-bottom: 12px;
-    height: 85px;
+    height: 80px;
     width: 100%;
+    background: ${primaryColor};
+    color: white;
 `
 
 export const Title = styled.h1`

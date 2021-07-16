@@ -5,8 +5,9 @@ import { useProtectedPage } from "../../hooks/useProtectedPage";
 import { Button, Menu, MenuItem } from "@material-ui/core";
 import { goToCreateImagePage, goToImageDetailsPage, goToLoginPage } from "../../routes/coordinator";
 import { Card } from "../../components/Card/Card"
-import { DivContainer, Header, DivCards, Title, DivButtons } from "./styled";
+import { DivContainer, Header, DivCards, Title, DivButtons, DivAdd, DivButton } from "./styled";
 import MenuIcon from '@material-ui/icons/Menu';
+import AddCircleIcon from '@material-ui/icons/AddCircle';
 
 export const AllImagesPage = () => {
     useProtectedPage()
@@ -44,7 +45,7 @@ export const AllImagesPage = () => {
 
     const imagesList = images && images.map((image) => {
         return (<Card
-            key={image.key}
+            key={image.id}
             file={image.file}
             goToDetailsPage={() => goToImageDetailsPage(history, image.id)}
             date={image.date}
@@ -62,7 +63,7 @@ export const AllImagesPage = () => {
         <Header>
             <Title>LabeImage</Title>
             <DivButtons>
-                <MenuIcon color="primary" onClick={handleClick} />
+                <MenuIcon color="secondary" onClick={handleClick} />
                 <Menu
                     anchorEl={anchorEl}
                     keepMounted
@@ -72,9 +73,15 @@ export const AllImagesPage = () => {
                     <MenuItem onClick={() => goToCreateImagePage(history)}> Criar Imagem </MenuItem>
                 </Menu>
             </DivButtons>
+            <DivButton>
+                <Button color="secondary" type="submit" variant="text" onClick={() => logout()} > Logout </Button>
+            </DivButton>
         </Header>
         <DivCards>
             {imagesList}
         </DivCards>
+        <DivAdd>
+            <AddCircleIcon style={{ fontSize: 60 }} color="primary" onClick={() => goToCreateImagePage(history)}/>
+        </DivAdd>
     </DivContainer>
 }

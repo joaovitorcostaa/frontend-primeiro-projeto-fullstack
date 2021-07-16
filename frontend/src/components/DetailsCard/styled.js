@@ -22,9 +22,6 @@ export const Img = styled.img`
         width: 100%;
         height: 70%;
     }
-    :hover{
-        cursor: pointer;
-    }
 `
 
 export const DivInfo = styled.div`

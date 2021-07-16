@@ -28,7 +28,6 @@ export const ImageDetailsPage = () => {
                 }
             })
             setImage(imageData.data)
-            console.log(imageData.data)
         } catch (error) {
             console.log(error.message)
         }

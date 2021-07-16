@@ -2,7 +2,7 @@ import { useProtectedPage } from "../../hooks/useProtectedPage"
 import { TextField, Button } from "@material-ui/core"
 import { goToAllImagesPage } from "../../routes/coordinator"
 import { useHistory } from "react-router"
-import { DivContainer, Form } from './styled';
+import { DivContainer, Form, Header, Title } from './styled';
 import useForm from "../../hooks/useForm";
 import axios from "axios";
 
@@ -31,12 +31,14 @@ export const CreateImagePage = () => {
     //         })
     //         goToAllImagesPage(history)
     //     } catch (error) {
-            
+
     //     }
     // }
 
     return <DivContainer>
-        <Button color="secondary" type="submit" variant="contained" onClick={() => goToAllImagesPage(history)}>Lista de imagens</Button>
+        <Header>
+            <Title onClick={() => goToAllImagesPage(history)}>LabeImage</Title>
+        </Header>
         <Form>
             <TextField
                 required
