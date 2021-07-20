@@ -1,10 +1,10 @@
-import { DivContainer, Form } from './styled';
+import { DivContainer, Form, DivButtons } from './styled';
 import React, { useState } from "react"
 import { TextField, Button, InputAdornment, IconButton } from "@material-ui/core"
 import { Visibility, VisibilityOff } from "@material-ui/icons";
 import useForm from "../../hooks/useForm";
 import axios from "axios";
-import { goToAllImagesPage } from "../../routes/coordinator"
+import { goToAllImagesPage, goToLoginPage } from "../../routes/coordinator"
 import { useHistory } from "react-router-dom";
 
 export const SignupPage = () => {
@@ -40,7 +40,7 @@ export const SignupPage = () => {
     }
 
     try {
-      const token = await axios.post(`https://backend-fullstack-labenu.herokuapp.com/user/signup`, body)
+      const token = await axios.post(`https://labeimage-joao-vitor.herokuapp.com/user/signup`, body)
       window.localStorage.setItem("token", token.data.token)
       clear()
       goToAllImagesPage(history)
@@ -112,7 +112,10 @@ export const SignupPage = () => {
           )
         }}
       />
-      <Button color="secondary" type="submit" variant="contained">Enviar</Button>
+      <DivButtons>
+      <Button color="primary" variant="contained" onClick = {() => goToLoginPage(history)}> Voltar </Button>
+      <Button color="primary" type="submit" variant="contained">Enviar</Button>
+      </DivButtons>
     </Form>
   </DivContainer>
 }
