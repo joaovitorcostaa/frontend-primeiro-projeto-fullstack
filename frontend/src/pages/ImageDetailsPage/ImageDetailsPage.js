@@ -2,7 +2,6 @@ import { useProtectedPage } from "../../hooks/useProtectedPage"
 import axios from "axios";
 import React, { useState, useEffect } from "react"
 import { useHistory, useParams } from "react-router-dom";
-import { Button } from "@material-ui/core";
 import { goToAllImagesPage } from "../../routes/coordinator";
 import { DetailsCard } from "../../components/DetailsCard/DetailsCard";
 import { DivContainer, Header, Title } from "./styled";
@@ -12,7 +11,7 @@ export const ImageDetailsPage = () => {
 
     useEffect(() => {
         getImage()
-    }, [])
+        }, [])
 
     const history = useHistory()
 
@@ -20,14 +19,18 @@ export const ImageDetailsPage = () => {
 
     const [image, setImage] = useState({}) 
 
+    const [authorName, setAuthor] = useState("")
+
+
     const getImage = async() => {
         try {
-            const imageData = await axios.get(`https://backend-fullstack-labenu.herokuapp.com/image/${id}`, {
+            const imageData = await axios.get(`https://labeimage-joao-vitor.herokuapp.com/image/${id}`, {
                 headers: {
                     Authorization: window.localStorage.getItem("token")
                 }
             })
             setImage(imageData.data)
+            setAuthor(imageData.data.author)
         } catch (error) {
             console.log(error.message)
         }
@@ -37,9 +40,14 @@ export const ImageDetailsPage = () => {
         <Header>
         <Title onClick={() => goToAllImagesPage(history)}>LabeImage</Title>
         </Header>
-                <DetailsCard 
+        {authorName && <DetailsCard 
+                    id = {image.id}
                     file = {image.file}
-                    title = {image.subtitle}
-                />
+                    title = {image.title}
+                    author = {authorName}
+                    date = {image.date}
+                    collection = {image.collection}
+                    tags = {image.tags}
+                />}
     </DivContainer>
 }

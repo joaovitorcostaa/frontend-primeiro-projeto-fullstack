@@ -16,3 +16,8 @@ export const Form = styled.form`
         width: 65%;
     }
 `
+
+export const DivButtons = styled.div`
+    display: flex;
+    justify-content: space-evenly;
+`

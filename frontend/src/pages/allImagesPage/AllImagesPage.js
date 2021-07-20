@@ -32,7 +32,7 @@ export const AllImagesPage = () => {
 
     const getAllImages = async () => {
         try {
-            const images = await axios.get(`https://backend-fullstack-labenu.herokuapp.com/image/all`, {
+            const images = await axios.get(`https://labeimage-joao-vitor.herokuapp.com/image/all`, {
                 headers: {
                     Authorization: window.localStorage.getItem("token")
                 }
@@ -48,9 +48,7 @@ export const AllImagesPage = () => {
             key={image.id}
             file={image.file}
             goToDetailsPage={() => goToImageDetailsPage(history, image.id)}
-            date={image.date}
-            collection={image.collection}
-            title={image.subtitle}
+            title={image.title}
         />)
     })
 

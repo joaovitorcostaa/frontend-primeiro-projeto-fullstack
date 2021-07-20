@@ -36,3 +36,8 @@ export const Title = styled.h1`
     cursor: pointer;
     }
 `
+
+export const DivButtons = styled.div`
+    display: flex;
+    justify-content: space-evenly;
+`

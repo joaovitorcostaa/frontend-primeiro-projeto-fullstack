@@ -1,8 +1,9 @@
+import React from "react"
 import { useProtectedPage } from "../../hooks/useProtectedPage"
 import { TextField, Button } from "@material-ui/core"
 import { goToAllImagesPage } from "../../routes/coordinator"
 import { useHistory } from "react-router"
-import { DivContainer, Form, Header, Title } from './styled';
+import { DivButtons, DivContainer, Form, Header, Title } from './styled';
 import useForm from "../../hooks/useForm";
 import axios from "axios";
 
@@ -20,26 +21,33 @@ export const CreateImagePage = () => {
 
     const [form, onChange, clear] = useForm(initialForm)
 
-    // const createImage = async(event) => {
-    //     event.preventDefault()
-    //     const body = {}
-    //     try {
-    //         await axios.post(``, body,  {
-    //             headers: {
-    //                 Authorization: window.localStorage.getItem("token")
-    //             }
-    //         })
-    //         goToAllImagesPage(history)
-    //     } catch (error) {
+    const createImage = async (event) => {
+        event.preventDefault()
 
-    //     }
-    // }
+        const body = {
+            title: form.title,
+            file: form.file,
+            tags: form.tags,
+            collection: form.collection
+        }
+
+        try {
+            await axios.post(`https://labeimage-joao-vitor.herokuapp.com/image/create`, body, {
+                headers: {
+                    Authorization: window.localStorage.getItem("token")
+                }
+            })
+            goToAllImagesPage(history)
+        } catch (error) {
+            console.log(error.message)
+        }
+    }
 
     return <DivContainer>
         <Header>
             <Title onClick={() => goToAllImagesPage(history)}>LabeImage</Title>
         </Header>
-        <Form>
+        <Form onSubmit={createImage}>
             <TextField
                 required
                 value={form.title}
@@ -87,7 +95,12 @@ export const CreateImagePage = () => {
                 color="secondary"
                 margin={"normal"}
             />
-            <Button color="secondary" type="submit" variant="contained">Criar Imagem</Button>
+
+            <DivButtons>
+                <Button color="secondary" onClick={() => goToAllImagesPage(history)} variant="contained">Voltar</Button>
+                <Button color="secondary" type="submit" variant="contained">Criar Imagem</Button>
+            </DivButtons>
+
         </Form>
     </DivContainer>
 }
