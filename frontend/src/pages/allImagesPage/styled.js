@@ -1,4 +1,4 @@
-import {primaryColor} from "../../constants/colors"
+import { primaryColor } from "../../constants/colors"
 import styled from "styled-components"
 
 export const DivContainer = styled.div`

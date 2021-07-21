@@ -79,7 +79,7 @@ export const AllImagesPage = () => {
             {imagesList}
         </DivCards>
         <DivAdd>
-            <AddCircleIcon style={{ fontSize: 60 }} color="primary" onClick={() => goToCreateImagePage(history)}/>
+            <AddCircleIcon style={{ fontSize: 60 }} color="primary" onClick={() => goToCreateImagePage(history)} />
         </DivAdd>
     </DivContainer>
 }

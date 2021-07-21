@@ -7,7 +7,6 @@ export const DivContainer = styled.div`
     align-items: center;
     width: 45%;
     height: 70%;
-    /* margin: 6px; */
     @media(max-width: 1024px){
         justify-content: space-between;
         flex-direction: column;
@@ -27,7 +26,13 @@ export const Img = styled.img`
 
 export const DivInfo = styled.div`
 display: flex;
-align-items: center;
+align-items: flex-start;
 flex-direction: column;
 width: 100%;
+`
+
+export const DivDate = styled.div`
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 `

@@ -8,7 +8,7 @@ export const useProtectedPage = () => {
   useEffect(() => {
     const token = window.localStorage.getItem("token");
     if (!token) {
-        goToLoginPage(history);
+      goToLoginPage(history);
     }
   }, [history]);
 };

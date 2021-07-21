@@ -49,9 +49,9 @@ export const SignupPage = () => {
       clear()
     }
   }
-  
+
   return <DivContainer>
-    <Form onSubmit = {signup}>
+    <Form onSubmit={signup}>
       <TextField
         required
         value={form.name}
@@ -113,8 +113,8 @@ export const SignupPage = () => {
         }}
       />
       <DivButtons>
-      <Button color="primary" variant="contained" onClick = {() => goToLoginPage(history)}> Voltar </Button>
-      <Button color="primary" type="submit" variant="contained">Enviar</Button>
+        <Button color="primary" variant="contained" onClick={() => goToLoginPage(history)}> Voltar </Button>
+        <Button color="primary" type="submit" variant="contained">Enviar</Button>
       </DivButtons>
     </Form>
   </DivContainer>

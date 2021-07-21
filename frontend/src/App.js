@@ -7,7 +7,7 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <Router>
       </Router>
-      </ThemeProvider>
+    </ThemeProvider>
   )
 }
 
