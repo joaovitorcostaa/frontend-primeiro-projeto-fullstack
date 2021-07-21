@@ -8,7 +8,7 @@ export const useUnprotectedPage = () => {
   useEffect(() => {
     const token = window.localStorage.getItem("token");
     if (token) {
-        goToAllImagesPage(history);
+      goToAllImagesPage(history);
     }
   }, [history]);
 };

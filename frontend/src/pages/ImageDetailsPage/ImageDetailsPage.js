@@ -11,18 +11,18 @@ export const ImageDetailsPage = () => {
 
     useEffect(() => {
         getImage()
-        }, [])
+    }, [])
 
     const history = useHistory()
 
-    const {id} = useParams()
+    const { id } = useParams()
 
-    const [image, setImage] = useState({}) 
+    const [image, setImage] = useState({})
 
     const [authorName, setAuthor] = useState("")
 
 
-    const getImage = async() => {
+    const getImage = async () => {
         try {
             const imageData = await axios.get(`https://labeimage-joao-vitor.herokuapp.com/image/${id}`, {
                 headers: {
@@ -38,16 +38,16 @@ export const ImageDetailsPage = () => {
 
     return <DivContainer>
         <Header>
-        <Title onClick={() => goToAllImagesPage(history)}>LabeImage</Title>
+            <Title onClick={() => goToAllImagesPage(history)}>LabeImage</Title>
         </Header>
-        {authorName && <DetailsCard 
-                    id = {image.id}
-                    file = {image.file}
-                    title = {image.title}
-                    author = {authorName}
-                    date = {image.date}
-                    collection = {image.collection}
-                    tags = {image.tags}
-                />}
+        {authorName && <DetailsCard
+            id={image.id}
+            file={image.file}
+            title={image.title}
+            author={authorName}
+            date={image.date}
+            collection={image.collection}
+            tags={image.tags}
+        />}
     </DivContainer>
 }

@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import {primaryColor} from "../../constants/colors"
+import { primaryColor } from "../../constants/colors"
 
 export const DivContainer = styled.div`
     display: flex;
